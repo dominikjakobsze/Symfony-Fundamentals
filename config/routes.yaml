@@ -1,3 +1,6 @@
 #index:
 #  path: /
 #  controller: App\Controller\QuestionController::homepage
+
+#Routes are configured in config/routes/annotations.yaml
+#To check all routes run: php bin/console debug:router
