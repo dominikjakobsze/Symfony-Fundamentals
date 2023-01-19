@@ -1,8 +1,11 @@
-<h1>{{ slug }}</h1>
-<div>Questions here</div>
-<h2>Answers</h2>
-<ul>
-    {% for answer in answers %}
-        <li>{{ answer }}</li>
-    {% endfor %}
-</ul>
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>{{ slug }}</h1>
+    <div>Questions here</div>
+    <h2>Answers ({{ answers|length }})</h2>
+    <ul>
+        {% for answer in answers %}
+            <li>{{ answer }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
