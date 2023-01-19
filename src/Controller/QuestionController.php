@@ -30,6 +30,7 @@ class QuestionController extends AbstractController
             'This is another test answer',
             'This is a third test answer',
         ];
+        dump($slug, $this);
         return $this->render('show.html.twig', ['slug' => $slug, 'answers' => $answers]);
     }
 }
