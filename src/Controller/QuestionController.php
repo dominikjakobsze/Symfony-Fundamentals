@@ -4,27 +4,32 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class QuestionController extends AbstractController
 {
     /**
      * @Route("/", name="app_question_homepage")
-     * @return JsonResponse
+     * @return Response
      */
-    public function homepage(): JsonResponse
+    public function homepage(): Response
     {
-        return $this->json('Hello', 200);
+        return $this->render('base.html.twig');
     }
 
     /**
      * @Route("/questions/{slug}", name="app_question_show")
      * @param $slug
-     * @return JsonResponse
+     * @return Response
      */
-    public function show($slug): JsonResponse
+    public function show($slug): Response
     {
-        $slug = trim(str_replace('-', ' ', $slug));
-        return $this->json("current url is = " . $slug, 200);
+        $answers = [
+            'This is a test answer',
+            'This is another test answer',
+            'This is a third test answer',
+        ];
+        return $this->render('show.html.twig', ['slug' => $slug, 'answers' => $answers]);
     }
 }
