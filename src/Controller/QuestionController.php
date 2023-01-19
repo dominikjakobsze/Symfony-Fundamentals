@@ -15,7 +15,7 @@ class QuestionController extends AbstractController
      */
     public function homepage(): Response
     {
-        return $this->render('base.html.twig');
+        return $this->render('homepage.html.twig');
     }
 
     /**
@@ -31,6 +31,6 @@ class QuestionController extends AbstractController
             'This is a third test answer',
         ];
         dump($slug, $this);
-        return $this->render('show.html.twig', ['slug' => $slug, 'answers' => $answers]);
+        return $this->render('show.html.twig', ['question' => $slug, 'answers' => $answers]);
     }
 }
